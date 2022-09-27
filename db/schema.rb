@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_27_004645) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_27_010045) do
+  create_table "clientes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "conta", force: :cascade do |t|
     t.integer "total"
     t.integer "item_id", null: false
@@ -19,6 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_004645) do
     t.datetime "updated_at", null: false
     t.index ["cliente_id"], name: "index_conta_on_cliente_id"
     t.index ["item_id"], name: "index_conta_on_item_id"
+  end
+
+  create_table "donos", force: :cascade do |t|
+    t.string "cnpj"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "funcionarios", force: :cascade do |t|
+    t.integer "salario"
+    t.string "ctps"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
