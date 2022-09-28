@@ -4,10 +4,38 @@
 
 <div id="funcionarios">
   <% @funcionarios.each do |funcionario| %>
-    <%= render funcionario %>
-    <p>
+    <tr>
+    <div id="<%= dom_id funcionario %>">
+      <p>
+        <strong>Nome:</strong>
+        <%= funcionario.nome %>
+      </p>
+
+      <p>
+        <strong>Cpf:</strong>
+        <%= funcionario.cpf %>
+      </p>
+
+      <p>
+        <strong>Nascimento:</strong>
+        <%= funcionario.nascimento %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= funcionario.email %>
+      </p>
+
+      <p>
+        <strong>Cargo:</strong>
+        <%=  Cargo.find(funcionario.cargo_id).funcao  %>
+      </p>
+
+
+      <p>
       <%= link_to "Show this funcionario", funcionario %>
     </p>
+    </tr>
   <% end %>
 </div>
 

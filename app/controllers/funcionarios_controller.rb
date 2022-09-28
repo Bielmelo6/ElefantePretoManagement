@@ -12,6 +12,7 @@ class FuncionariosController < ApplicationController
 
   # GET /funcionarios/new
   def new
+
     @funcionario = Funcionario.new
   end
 
@@ -22,6 +23,8 @@ class FuncionariosController < ApplicationController
   # POST /funcionarios or /funcionarios.json
   def create
     @funcionario = Funcionario.new(funcionario_params)
+    @cargo = Cargo.find(funcionario_params[:cargo_id])
+    @cargo.funcionarios << @funcionario
 
     respond_to do |format|
       if @funcionario.save
