@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :item_id, style: "display: block" %>
-    <%= form.text_field :item_id %>
+  <div class="field">
+    <%= form.label :item_id%>
+    <%= form.collection_select(:item_id, Item.all, :id, :produto,{:selected => @contum.item_id})%>
   </div>
 
-  <div>
-    <%= form.label :cliente_id, style: "display: block" %>
-    <%= form.text_field :cliente_id %>
+  <div class="field">
+    <%= form.label :cliente_id%>
+    <%= form.collection_select(:cliente_id, Cliente.all, :id, :nome,{:selected => @contum.cliente_id})%>
   </div>
 
   <div>

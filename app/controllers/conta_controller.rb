@@ -23,6 +23,12 @@ class ContaController < ApplicationController
   def create
     @contum = Contum.new(contum_params)
 
+    @item = Item.find(contum_params[:item_id])
+
+    @cliente = Cliente.find(contum_params[:cliente_id])
+    @cliente.contum = @contum
+
+
     respond_to do |format|
       if @contum.save
         format.html { redirect_to contum_url(@contum), notice: "Contum was successfully created." }
