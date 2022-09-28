@@ -24,3 +24,9 @@ Feature: Cliente
     And o cliente de nome: 'ivan do nascimento', cpf: '161169850-25' existe
     When eu edito o nome do cliente : 'ivan do nascimento' para :'i' e clico atualizar
     Then eu vejo uma mensagem de erro de nome invalido
+
+  Scenario: remover cadastro com sucesso
+    Given estou na pagina de clientes
+    And o cliente de nome: 'ivan do nascimento', cpf: '161169850-25' existe
+    When eu removo o cliente de nome: 'ivan do nascimento'
+    Then eu vejo uma mensagem que o cliente foi removido com sucesso

@@ -41,4 +41,13 @@ Then('eu vejo uma mensagem que o cliente  foi editado com sucesso') do
   expect(page).to have_content('Cliente was successfully updated.')
 end
 
+When('eu removo o cliente de nome: {string}') do |nome|
+  expect(page).to have_content(nome)
+  click_button "Destroy this cliente"
+end
+
+Then('eu vejo uma mensagem que o cliente foi removido com sucesso') do
+  expect(page).to have_content 'Cliente was successfully destroyed.'
+end
+
 
