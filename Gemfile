@@ -47,10 +47,14 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+#
+gem "cpf_cnpj"
+
+gem "ffi"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug"
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
@@ -64,17 +68,26 @@ group :development do
   # gem "spring"
 end
 
-group :test do
+def testing_gems
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rspec'
 
-  gem "cucumber-rails", require: false
-  gem "database_cleaner"
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
+
+group :test do
+  testing_gems
+end
+
+group :production, :actions do
+  gem 'pg'
+  gem 'activerecord-postgresql-adapter'
 end
 
 group :actions do
-  gem 'pg'
-  gem 'activerecord-postgresql-adapter'
+  testing_gems
 end
