@@ -21,13 +21,12 @@ class ContaController < ApplicationController
 
   # POST /conta or /conta.json
   def create
-    @contum = Contum.new(contum_params)
 
     @item = Item.find(contum_params[:item_id])
-
     @cliente = Cliente.find(contum_params[:cliente_id])
+    @contum = Contum.new(contum_params)
     @cliente.contum = @contum
-
+    @item.contums << @contum
 
     respond_to do |format|
       if @contum.save

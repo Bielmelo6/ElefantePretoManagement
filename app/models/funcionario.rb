@@ -1,6 +1,6 @@
 require 'cpf_cnpj'
 class Funcionario < ApplicationRecord
-  has_one :cargo
+  belongs_to :cargo
   accepts_nested_attributes_for :cargo
 
   validates :nome, presence: true, length: {in: 2..50}
