@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Conta</h1>
+
+<div id="conta">
+  <% @conta.each do |contum| %>
+    <%= render contum %>
+    <p>
+      <%= link_to "Show this contum", contum %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New contum", new_contum_path %>

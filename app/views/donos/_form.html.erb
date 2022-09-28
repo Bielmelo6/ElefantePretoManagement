@@ -1,0 +1,32 @@
+<%= form_with(model: dono) do |form| %>
+  <% if dono.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(dono.errors.count, "error") %> prohibited this dono from being saved:</h2>
+
+      <ul>
+        <% dono.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :cpf, style: "display: block" %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div>
+    <%= form.label :cnpj, style: "display: block" %>
+    <%= form.text_field :cnpj %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

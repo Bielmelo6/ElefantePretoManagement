@@ -1,0 +1,27 @@
+<div id="<%= dom_id funcionario %>">
+  <p>
+    <strong>Nome:</strong>
+    <%= funcionario.nome %>
+  </p>
+
+  <p>
+    <strong>Cpf:</strong>
+    <%= funcionario.cpf %>
+  </p>
+
+  <p>
+    <strong>Nascimento:</strong>
+    <%= funcionario.nascimento %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= funcionario.email %>
+  </p>
+
+  <p>
+    <strong>Cargo:</strong>
+    <%= Cargo.find(@funcionario.cargo_id).funcao %>
+  </p>
+
+</div>
