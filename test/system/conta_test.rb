@@ -14,6 +14,8 @@ class ContaTest < ApplicationSystemTestCase
     visit conta_url
     click_on "New contum"
 
+    fill_in "Cliente", with: @contum.cliente_id
+    fill_in "Item", with: @contum.item_id
     fill_in "Total", with: @contum.total
     click_on "Create Contum"
 
@@ -25,6 +27,8 @@ class ContaTest < ApplicationSystemTestCase
     visit contum_url(@contum)
     click_on "Edit this contum", match: :first
 
+    fill_in "Cliente", with: @contum.cliente_id
+    fill_in "Item", with: @contum.item_id
     fill_in "Total", with: @contum.total
     click_on "Update Contum"
 
