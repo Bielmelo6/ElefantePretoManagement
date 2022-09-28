@@ -24,3 +24,9 @@ Feature: Funcionario
     And o funcionario de nome: 'ivan do nascimento', cpf: '161169850-25', nascimento: '2001-02-02', email: 'test@test.com', cargo: '1' existe
     When eu edito o nome do funcionario : 'ivan do nascimento' para :'i' e clico atualizar
     Then eu vejo uma mensagem de erro de nome invalido
+
+  Scenario: remover funcionario com sucesso
+    Given estou na pagina de funcionarios
+    And o funcionario de nome: 'ivan do nascimento', cpf: '161169850-25', nascimento: '2001-02-02', email: 'test@test.com', cargo: '1' existe
+    When eu removo o dono de nome: 'ivan do nascimento'
+    Then eu vejo uma mensagem que o funcionario foi removido com sucesso

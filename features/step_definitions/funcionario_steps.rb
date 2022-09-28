@@ -45,3 +45,11 @@ Then('eu vejo uma mensagem que o funcionario foi editado com sucesso') do
   expect(page).to have_content('Funcionario was successfully updated.')
 end
 
+When('eu removo o funcionario de nome: {string}') do |nome|
+  expect(page).to have_content(nome)
+  click_button "Destroy this funcionario"
+end
+
+Then('eu vejo uma mensagem que o funcionario foi removido com sucesso') do
+  expect(page).to have_content 'Funcionario was successfully destroyed.'
+  end
