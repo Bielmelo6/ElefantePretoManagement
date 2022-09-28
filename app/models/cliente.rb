@@ -1,7 +1,7 @@
 require 'cpf_cnpj'
 class Cliente < ApplicationRecord
   has_one :contum
-  validates :nome, presence: true, length: {minimum: 2, maximum: 20}
+  validates :nome, presence: true, length: {in: 2..50}
   validate :cpf_valido
 
   def cpf_valido

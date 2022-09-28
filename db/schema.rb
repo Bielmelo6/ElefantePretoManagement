@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_020553) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_28_023023) do
   create_table "cargos", force: :cascade do |t|
     t.string "funcao"
     t.integer "salario"
@@ -44,9 +44,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_020553) do
   end
 
   create_table "funcionarios", force: :cascade do |t|
-    t.integer "cargo_id", null: false
     t.string "nome"
     t.string "cpf"
+    t.date "nascimento"
+    t.string "email"
+    t.integer "cargo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"

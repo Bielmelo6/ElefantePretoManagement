@@ -1,6 +1,6 @@
 class Cargo < ApplicationRecord
   belongs_to :funcionario
 
-  validates :funcao, presence: true, length: 4
-  validates :salario, presence: true, length: 4, numericality: {only_integer: true}
+  validates :funcao, presence: true, length: {in: 2..50}
+  validates :salario, presence: true, length: {in: 2..50}, numericality: {only_integer: true}
 end

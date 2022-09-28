@@ -3,7 +3,7 @@ class Funcionario < ApplicationRecord
   has_one :cargo
   accepts_nested_attributes_for :cargo
 
-  validates :nome, presence: true, length: {minimum: 2, maximum: 20}
+  validates :nome, presence: true, length: {in: 2..50}
   validates :email, presence: true, format: {with: URI::MailTo::EMAIL_REGEXP}
   validate :nascimento_valido
   validate :cpf_valido

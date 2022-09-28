@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="field" style="display: flex; justify-content: center; padding: 5px">
+    <%= form.label :cargo_id%>
+    <%= form.collection_select(:cargo_id, Cargo.all, :id, :funcao,{:selected => @Funcionarios.cargo_id})%>
+  </div>
+
   <div>
     <%= form.label :nome, style: "display: block" %>
     <%= form.text_field :nome %>
