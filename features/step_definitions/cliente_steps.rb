@@ -13,3 +13,8 @@ Then('eu vejo uma mensagem que o cliente  foi cadastrado com sucesso') do
   expect(page).to have_content('Cliente was successfully created.')
 end
 
+Then('eu vejo uma mensagem de erro de nome invalido') do
+  assert_selector('li', text: 'Nome is too short (minimum is 2 characters)')
+end
+
+
