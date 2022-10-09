@@ -1,6 +1,6 @@
 #
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/69114b9aa610439881a3b4a0237b14b9)](https://app.codacy.com/gh/Elefante-Preto/ElefantePretoManagement/dashboard) 
-# Sistema de gerenciamento de um bar.
+# Sistema de gerenciamento de um bar
 ## :octocat: Integrantes
 [Ivan do Nascimento](https://github.com/IvandoNascimento) | [Gabriel Melo](https://github.com/Bielmelo6) | [Rogerio Lacerda](https://github.com/RogerioLacerdaGH) | [Gustavo Henrique](https://github.com/GustavoHenriqueVieira) |
 

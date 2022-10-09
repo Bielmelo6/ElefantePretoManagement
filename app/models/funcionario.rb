@@ -1,6 +1,8 @@
 require 'cpf_cnpj'
 class Funcionario < ApplicationRecord
+
   belongs_to :cargo
+  belongs_to :dono
   accepts_nested_attributes_for :cargo
 
   validates :nome, presence: true, length: {in: 2..50}
@@ -14,7 +16,7 @@ class Funcionario < ApplicationRecord
     end
   end
   def nascimento_valido
-    if nascimento.present? && nascimento > Date.today
+    if nascimento.present? && nascimento > Time.zone.today
       errors.add(:data, "Sua data de nascimento é inválida!")
     end
   end

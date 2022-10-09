@@ -2,6 +2,7 @@ require 'cpf_cnpj'
 
 class Dono < ApplicationRecord
 
+  has_many :funcionarios, dependent: :destroy
   validates :nome, presence: true, length: {in: 2..50}
   validate :cnpj_valido
   validate :cpf_valido
