@@ -1,7 +1,6 @@
 require 'cpf_cnpj'
 class Funcionario < ApplicationRecord
 
-  belongs_to :dono
   belongs_to :cargo
   accepts_nested_attributes_for :cargo
 
