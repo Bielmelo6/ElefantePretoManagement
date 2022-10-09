@@ -6,7 +6,6 @@ class CreateFuncionarios < ActiveRecord::Migration[7.0]
       t.date :nascimento
       t.string :email
       t.references :cargo, null: false, foreign_key: true
-      t.references :dono, null: false, foreign_key: true
 
       t.timestamps
     end
