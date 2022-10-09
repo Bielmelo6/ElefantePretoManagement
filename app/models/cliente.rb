@@ -2,6 +2,7 @@ require 'cpf_cnpj'
 
 class Cliente < ApplicationRecord
 
+  belongs_to :dono
   has_one :pedido, dependent: :destroy
 
   validates :nome, presence: true, length: {in: 2..50}
