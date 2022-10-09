@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_023023) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_09_171814) do
   create_table "cargos", force: :cascade do |t|
     t.string "funcao"
     t.integer "salario"
@@ -23,16 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_023023) do
     t.string "cpf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "conta", force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "cliente_id", null: false
-    t.integer "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cliente_id"], name: "index_conta_on_cliente_id"
-    t.index ["item_id"], name: "index_conta_on_item_id"
   end
 
   create_table "donos", force: :cascade do |t|
@@ -61,7 +51,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_023023) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "conta", "clientes"
-  add_foreign_key "conta", "items"
+  create_table "pedidos", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "cliente_id", null: false
+    t.integer "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_pedidos_on_cliente_id"
+    t.index ["item_id"], name: "index_pedidos_on_item_id"
+  end
+
   add_foreign_key "funcionarios", "cargos"
+  add_foreign_key "pedidos", "clientes"
+  add_foreign_key "pedidos", "items"
 end
