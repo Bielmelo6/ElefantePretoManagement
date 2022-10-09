@@ -5,11 +5,37 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Elefante Preto</a>
+
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "Donos", donos_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Funcionarios", funcionarios_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Cliente", clientes_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Itens", items_path, class: "nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Pedidos", pedidos_path, class: "nav-link active" %>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
