@@ -21,8 +21,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_171814) do
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
     t.string "cpf"
+    t.integer "dono_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dono_id"], name: "index_clientes_on_dono_id"
   end
 
   create_table "donos", force: :cascade do |t|
@@ -39,9 +41,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_171814) do
     t.date "nascimento"
     t.string "email"
     t.integer "cargo_id", null: false
+    t.integer "dono_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cargo_id"], name: "index_funcionarios_on_cargo_id"
+    t.index ["dono_id"], name: "index_funcionarios_on_dono_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -61,7 +65,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_171814) do
     t.index ["item_id"], name: "index_pedidos_on_item_id"
   end
 
+  add_foreign_key "clientes", "donos"
   add_foreign_key "funcionarios", "cargos"
+  add_foreign_key "funcionarios", "donos"
   add_foreign_key "pedidos", "clientes"
   add_foreign_key "pedidos", "items"
 end
