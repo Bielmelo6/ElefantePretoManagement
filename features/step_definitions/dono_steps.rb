@@ -34,24 +34,3 @@ end
 Then('eu vejo uma mensagem que o dono foi cadastrado com sucesso') do
   expect(page).to have_content('Dono was successfully created.')
 end
-
-
-Then('eu vejo uma mensagem que o dono foi editado com sucesso') do
-  expect(page).to have_content('Dono was successfully updated.')
-end
-
-Given('estou na pagina do dono com id {string}') do |id|
-  id = Dono.where(id: id).first
-  visit "/donos/#{id}"
-
-  expect(page).to have_current_path(id)
-end
-
-When('eu removo o dono de nome: {string}') do |nome|
-  expect(page).to have_content(nome)
-  click_button "Destroy this dono"
-end
-
-Then('eu vejo uma mensagem que o dono foi removido com sucesso') do
-  expect(page).to have_content 'Dono was successfully destroyed.'
-end
