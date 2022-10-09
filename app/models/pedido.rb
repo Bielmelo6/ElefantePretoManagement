@@ -1,4 +1,4 @@
-class Contum < ApplicationRecord
+class Pedido < ApplicationRecord
 
   belongs_to :item
   belongs_to :cliente

@@ -2,7 +2,7 @@ require 'cpf_cnpj'
 
 class Cliente < ApplicationRecord
 
-  has_one :contum, dependent: :destroy
+  has_one :pedido, dependent: :destroy
 
   validates :nome, presence: true, length: {in: 2..50}
   validate :cpf_valido
