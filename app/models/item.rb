@@ -1,7 +1,8 @@
 class Item < ApplicationRecord
 
-  has_many :contums
+  has_many :contums, dependent: :destroy
 
-  validates :produto, presence: true
+  validates :produto, presence: true, length: {in: 2..50}
   validates :valor, presence: true, numericality: {only_integer: true}
+
 end

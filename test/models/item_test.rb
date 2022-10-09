@@ -17,4 +17,19 @@ class ItemTest < ActiveSupport::TestCase
     assert_not item.save
   end
 
+  test 'Criando item com valor inválido no campo produto' do
+    item = Item.new produto: 'E', valor: '9'
+    assert_not item.save
+  end
+
+  test 'Criando item com valor inválido em todos os campos' do
+    item = Item.new produto: 'E', valor: 'R$9,00'
+    assert_not item.save
+  end
+
+  test 'Criando item com só um campo preenchido' do
+    item = Item.new produto: 'Heineken'
+    assert_not item.save
+  end
+
 end

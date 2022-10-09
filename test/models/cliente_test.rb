@@ -17,4 +17,19 @@ class ClienteTest < ActiveSupport::TestCase
     assert_not cliente.save
   end
 
+  test 'Criando cliente com só um campo preenchdido' do
+    cliente = Cliente.new cpf: '84127420014'
+    assert_not cliente.save
+  end
+
+  test 'Criando cliente com os dois campos inválidos' do
+    cliente = Cliente.new nome: 'A', cpf: '123'
+    assert_not cliente.save
+  end
+
+  test 'Criando cliente com o campo nome invalido' do
+    cliente = Cliente.new nome: 'A', cpf: '84127420014'
+    assert_not cliente.save
+  end
+
 end
