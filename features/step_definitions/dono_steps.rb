@@ -34,11 +34,3 @@ end
 Then('eu vejo uma mensagem que o dono foi cadastrado com sucesso') do
   expect(page).to have_content('Dono was successfully created.')
 end
-
-Then('eu vejo uma mensagem de erro de nome invalido') do
-  assert_selector('li', text: 'Nome is too short (minimum is 2 characters)')
-end
-
-Then('eu vejo uma mensagem que o dono foi editado com sucesso') do
-  expect(page).to have_content('Dono was successfully updated.')
-end
