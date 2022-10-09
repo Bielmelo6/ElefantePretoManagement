@@ -1,4 +1,5 @@
 class Cargo < ApplicationRecord
+
   has_many :funcionarios
 
   validates :funcao, presence: true, length: {in: 2..50}
