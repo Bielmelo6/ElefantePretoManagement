@@ -17,5 +17,20 @@ class CargoTest < ActiveSupport::TestCase
     assert_not cargo.save
   end
 
+  test 'Criando cargo com só um campo preenchido' do
+    cargo = Cargo.new funcao: 'Gerente'
+    assert_not cargo.save
+  end
+
+  test 'Criando cargo com os dois campos inválidos' do
+    cargo = Cargo.new funcao: 'G', salario: 'teste'
+    assert_not cargo.save
+  end
+
+  test 'Criando cargo com o campo funcao invalido' do
+    cargo = Cargo.new funcao: 'G', salario: '2000'
+    assert_not cargo.save
+  end
+
 end
 
