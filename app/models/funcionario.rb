@@ -14,7 +14,7 @@ class Funcionario < ApplicationRecord
     end
   end
   def nascimento_valido
-    if nascimento.present? && nascimento > Date.today
+    if nascimento.present? && nascimento > Time.zone.today
       errors.add(:data, "Sua data de nascimento é inválida!")
     end
   end
