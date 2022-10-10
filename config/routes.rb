@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :pedidos
   resources :funcionarios
-  devise_for :donos, :controllers => {:logins => "logins"}
+  devise_for :donos, :controllers => {:registrations => "registrations"}
   resources :donos
   resources :cargos
   resources :clientes
