@@ -1,10 +1,8 @@
 class DonosController < ApplicationController
   before_action :set_dono, only: %i[ show edit update destroy ]
 
-
   # GET /donos or /donos.json
   def index
-    @donos = Dono.all
   end
 
   # GET /donos/1 or /donos/1.json
@@ -58,9 +56,12 @@ class DonosController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dono
+
       @dono = Dono.find(params[:id])
     end
 

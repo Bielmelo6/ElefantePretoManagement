@@ -1,5 +1,6 @@
 class CargosController < ApplicationController
   before_action :set_cargo, only: %i[ show edit update destroy ]
+  before_action :authenticate_dono!
 
   # GET /cargos or /cargos.json
   def index

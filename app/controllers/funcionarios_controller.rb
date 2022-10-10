@@ -1,5 +1,7 @@
 class FuncionariosController < ApplicationController
   before_action :set_funcionario, only: %i[ show edit update destroy ]
+  before_action :authenticate_dono!
+
 
   # GET /funcionarios or /funcionarios.json
   def index
