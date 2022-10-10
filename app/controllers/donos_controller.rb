@@ -1,6 +1,7 @@
 class DonosController < ApplicationController
   before_action :set_dono, only: %i[ show edit update destroy ]
 
+
   # GET /donos or /donos.json
   def index
     @donos = Dono.all
@@ -65,6 +66,6 @@ class DonosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dono_params
-      params.require(:dono).permit(:nome, :cpf, :cnpj)
+      params.require(:dono).permit(:nome, :cpf, :cnpj, :email, :password, :password_confirmation)
     end
 end

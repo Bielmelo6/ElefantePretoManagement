@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   resources :pedidos
   resources :funcionarios
+  devise_for :donos, :controllers => {:logins => "logins"}
   resources :donos
   resources :cargos
   resources :clientes
@@ -10,4 +12,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "home#index"
+
 end
