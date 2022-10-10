@@ -3,7 +3,6 @@ class DonosController < ApplicationController
 
   # GET /donos or /donos.json
   def index
-    @donos = Dono.all
   end
 
   # GET /donos/1 or /donos/1.json
@@ -57,14 +56,17 @@ class DonosController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dono
+
       @dono = Dono.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def dono_params
-      params.require(:dono).permit(:nome, :cpf, :cnpj)
+      params.require(:dono).permit(:nome, :cpf, :cnpj, :email, :password, :password_confirmation)
     end
 end

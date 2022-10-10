@@ -1,8 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Donos</h1>
 
 <div id="donos">
+  <p> <%= @email %></p>
   <% @donos.each do |dono| %>
     <%= render dono %>
     <p>

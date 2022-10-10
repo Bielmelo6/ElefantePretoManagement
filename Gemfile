@@ -91,3 +91,5 @@ end
 group :actions do
   testing_gems
 end
+
+gem "devise", "~>4.8"
