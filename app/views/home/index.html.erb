@@ -1,10 +1,7 @@
 <h1><strong> Elefante Preto - - Restaurante</strong></h1>
 
 <% if current_dono %>
-
-  <p> <%= current_dono.email %></p>
   <p> Hello <%= current_dono.nome %>! </p>
-  <p> Hello <%= current_dono.id %>! </p>
     <ul>
 
     <li><%= link_to "Funcionarios", funcionarios_path %></li>
