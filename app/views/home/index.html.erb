@@ -1,16 +1,21 @@
 <h1><strong> Elefante Preto - - Restaurante</strong></h1>
 
 <% if current_dono %>
-<ul>
-  <li><%= link_to "Donos", donos_path%></li>
-  <li><%= link_to "Funcionarios", funcionarios_path %></li>
-  <li><%= link_to "Clientes", clientes_path %></li>
-  <li><%= link_to "Pedidos", pedidos_path %></li>
-  <li><%= link_to "Itens", items_path %></li>
-  <p> <%= link_to "Logout", destroy_dono_session_path, 'data-turbo-method': :delete %> </p>
-</ul>
+
+  <p> <%= current_dono.email %></p>
+  <p> Hello <%= current_dono.nome %>! </p>
+  <p> Hello <%= current_dono.id %>! </p>
+    <ul>
+
+    <li><%= link_to "Funcionarios", funcionarios_path %></li>
+    <li><%= link_to "Clientes", clientes_path %></li>
+    <li><%= link_to "Pedidos", pedidos_path %></li>
+    <li><%= link_to "Itens", items_path %></li>
+    <li><%= link_to "Edite seu cadastro",  edit_dono_registration_path %></li>
+    <p> <%= button_to "Log out", destroy_dono_session_path, method: :delete  %> </p>
+  </ul>
 
 <% else %>
   <p> <%= link_to "Login", new_dono_session_path %> </p>
-  <p> <%= link_to "Sign up", new_dono_registration_path %> </p>
+  <p> <%= link_to "Sign up", "/donos/new" %> </p>
 <% end %>
