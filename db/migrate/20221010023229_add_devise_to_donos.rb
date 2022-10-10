@@ -34,7 +34,7 @@ class AddDeviseToDonos < ActiveRecord::Migration[7.0]
 
 
       # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps null: false
+      t.timestamps
     end
 
     add_index :donos, :email,                unique: true

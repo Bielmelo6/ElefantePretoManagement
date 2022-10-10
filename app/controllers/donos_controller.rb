@@ -3,6 +3,7 @@ class DonosController < ApplicationController
 
   # GET /donos or /donos.json
   def index
+    @donos = Dono.all
   end
 
   # GET /donos/1 or /donos/1.json

@@ -5,7 +5,6 @@ class CreateDonos < ActiveRecord::Migration[7.0]
       t.string :cpf
       t.string :cnpj
 
-      t.timestamps
     end
   end
 end

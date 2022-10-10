@@ -9,6 +9,8 @@
     <li><%= link_to "Pedidos", pedidos_path %></li>
     <li><%= link_to "Itens", items_path %></li>
     <li><%= link_to "Edite seu cadastro",  edit_dono_registration_path %></li>
+    <li><%= link_to "Edite seus dados pessoais",  edit_dono_path(current_dono.id) %></li>
+    <li><%= link_to "Visualize seu cadastro",  donos_path %></li>
     <p> <%= button_to "Log out", destroy_dono_session_path, method: :delete  %> </p>
   </ul>
 
