@@ -1,6 +1,10 @@
 require 'cpf_cnpj'
 
 class Dono < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
   has_many :funcionarios, dependent: :destroy
   validates :nome, presence: true, length: {in: 2..50}
