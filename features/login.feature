@@ -26,3 +26,8 @@ Feature: Login
     And eu clico no botao de logar
     When eu preencho o email: 'teste1@teste1.com' e senha: 'teste12'
     Then eu vejo uma mensagem de erro
+
+  Scenario: deslogar com sucesso
+    Given estou logado
+    And eu clico no botao de deslogar
+    Then eu vejo uma mensagem que fui deslogado com sucesso

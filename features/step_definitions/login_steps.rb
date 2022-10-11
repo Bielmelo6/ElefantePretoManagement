@@ -11,6 +11,10 @@ And('eu clico no botao de logar') do
   click_on 'Login'
 end
 
+And('eu clico no botao de deslogar') do
+  click_on 'Log out'
+end
+
 When('eu preencho o dono de nome: {string}, cpf: {string}, cnpj: {string}, email: {string}, password: {string}, password_confirmation: {string} e clico cadastrar') do |nome, cpf,cnpj, email, pass,password|
   fill_in 'dono[nome]', :with => nome
   fill_in 'dono[cpf]', :with => cpf
@@ -37,4 +41,16 @@ end
 
 Then('eu vejo uma mensagem de erro') do
   expect(page).to have_content('Invalid Email or password.')
+end
+
+Given('estou logado') do
+  visit '/donos/sign_in'
+  fill_in 'dono[email]', :with => 'teste1@teste1.com'
+  fill_in 'dono[password]', :with => 'teste123'
+  click_button 'Log in'
+  expect(page).to have_content('Signed in successfully.')
+end
+
+Then('eu vejo uma mensagem que fui deslogado com sucesso') do
+  expect(page).to have_content('Signed out successfully.')
 end
