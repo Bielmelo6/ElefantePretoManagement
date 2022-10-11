@@ -3,6 +3,7 @@ class CreatePedidos < ActiveRecord::Migration[7.0]
     create_table :pedidos do |t|
       t.references :item, null: false, foreign_key: true
       t.references :cliente, null: false, foreign_key: true
+      t.integer :quantidade
       t.integer :total
 
       t.timestamps
