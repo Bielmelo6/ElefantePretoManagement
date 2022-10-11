@@ -34,3 +34,7 @@ end
 Then('eu vejo uma mensagem que fui logado com sucesso') do
   expect(page).to have_content('Signed in successfully.')
 end
+
+Then('eu vejo uma mensagem de erro') do
+  expect(page).to have_content('Invalid Email or password.')
+end
