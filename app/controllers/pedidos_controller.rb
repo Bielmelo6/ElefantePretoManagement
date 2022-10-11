@@ -1,5 +1,6 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
+  before_action :authenticate_dono!
 
   # GET /pedidos or /pedidos.json
   def index
