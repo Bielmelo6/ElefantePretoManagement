@@ -4,8 +4,11 @@ one:
   nome: MyString
   cpf: MyString
   cnpj: MyString
+  email: Mystring
 
 two:
   nome: MyString
   cpf: MyString
   cnpj: MyString
+  email: Mystring2
+
