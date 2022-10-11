@@ -20,3 +20,9 @@ Feature: Login
     And eu clico no botao de logar
     When eu preencho o email: 't@teste1.com' e senha: 'teste123'
     Then eu vejo uma mensagem de erro
+
+  Scenario: logar com senha invalida
+    Given estou na pagina inicial
+    And eu clico no botao de logar
+    When eu preencho o email: 'teste1@teste1.com' e senha: 'teste12'
+    Then eu vejo uma mensagem de erro
