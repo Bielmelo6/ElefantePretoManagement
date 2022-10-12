@@ -1,5 +1,6 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
+  before_action :authenticate_dono!
 
   # GET /pedidos or /pedidos.json
   def index
@@ -26,6 +27,7 @@ class PedidosController < ApplicationController
     @cliente = Cliente.find(pedido_params[:cliente_id])
     @pedido = Pedido.new(pedido_params)
     @cliente.pedido = @pedido
+    @pedido.total = @pedido.quantidade*@item.valor
 
     respond_to do |format|
       if @pedido.save
@@ -44,11 +46,15 @@ class PedidosController < ApplicationController
       if @pedido.update(pedido_params)
         format.html { redirect_to pedido_url(@pedido), notice: "Pedido was successfully updated." }
         format.json { render :show, status: :ok, location: @pedido }
+
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @pedido.errors, status: :unprocessable_entity }
       end
     end
+    @item = Item.find(pedido_params[:item_id])
+    @pedido.total = @pedido.quantidade*@item.valor
+    @pedido.save
   end
 
   # DELETE /pedidos/1 or /pedidos/1.json
@@ -69,6 +75,6 @@ class PedidosController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def pedido_params
-    params.require(:pedido).permit(:item_id, :cliente_id, :total)
+    params.require(:pedido).permit(:item_id, :cliente_id, :quantidade, :total)
   end
 end

@@ -12,7 +12,7 @@ class PedidoTest < ActiveSupport::TestCase
     assert item.save
     cliente = Cliente.new nome: 'Ana Souza', cpf: '84127420014'
     assert cliente.save
-    pedido = Pedido.new item_id: item.id, cliente_id: cliente.id,  total: '7'
+    pedido = Pedido.new item_id: item.id, cliente_id: cliente.id,  quantidade: '2'
     assert pedido.save
   end
 
@@ -21,7 +21,7 @@ class PedidoTest < ActiveSupport::TestCase
     assert item.save
     cliente = Cliente.new
     assert_not cliente.save
-    pedido = Pedido.new total: '7', item_id: item.id, cliente_id: cliente.id
+    pedido = Pedido.new quantidade: '2', item_id: item.id, cliente_id: cliente.id
     assert_not pedido.save
   end
 
@@ -30,11 +30,11 @@ class PedidoTest < ActiveSupport::TestCase
     assert item.save
     cliente = Cliente.new nome: 'Ana Souza', cpf: '84127420014'
     assert cliente.save
-    pedido = Pedido.new total: '7', item_id: item.produto, cliente_id: cliente.cpf
+    pedido = Pedido.new item_id: item.produto, cliente_id: cliente.cpf, quantidade: '2'
     assert_not pedido.save
   end
 
-  test 'Criando pedido sem o total' do
+  test 'Criando pedido sem a quantidade' do
     item = Item.new produto: 'Heineken', valor: '7'
     assert item.save
     cliente = Cliente.new nome: 'Ana Souza', cpf: '84127420014'
@@ -48,7 +48,7 @@ class PedidoTest < ActiveSupport::TestCase
     assert_not item.save
     cliente = Cliente.new
     assert_not cliente.save
-    pedido = Pedido.new item_id: item.id, cliente_id: cliente.id
+    pedido = Pedido.new item_id: item.id, cliente_id: cliente.id, quantidade: '2'
     assert_not pedido.save
   end
 

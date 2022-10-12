@@ -1,17 +1,19 @@
-<div id="<%= dom_id pedido %>">
-  <p>
-    <strong>Item:</strong>
-    <%= pedido.item_id %>
-  </p>
-
-  <p>
-    <strong>Cliente:</strong>
-    <%= pedido.cliente_id %>
-  </p>
-
-  <p>
-    <strong>Total:</strong>
-    <%= pedido.total %>
-  </p>
-
-</div>
+<h1>Pedido</h1>
+    <tr>
+      <p>
+        <strong>Cliente:</strong>
+        <%= pedido.cliente.nome %>
+      </p>
+      <p>
+        <strong>Item:</strong>
+        <%= pedido.item.produto %>
+      </p>
+      <p>
+        <strong>Quantidade:</strong>
+        <%= pedido.quantidade %>
+      </p>
+      <p>
+        <strong>Total:</strong>R$
+        <%= pedido.total %>,00
+      </p>
+    </tr>
