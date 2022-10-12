@@ -16,6 +16,11 @@
 
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if current_dono %>
+            <li class="nav-item">
+              <%= link_to "Donos", donos_path, class: "nav-link active" %>
+            </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to "Cargos", cargos_path, class: "nav-link active" %>
           </li>
