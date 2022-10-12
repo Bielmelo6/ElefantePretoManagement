@@ -20,3 +20,7 @@ When('eu edito a quantidade do pedido: {string} para :{string}') do |nome,novo|
   click_on 'Edit this pedido'
   fill_in 'pedido[quantidade]', :with => novo
 end
+
+Then('eu vejo uma mensagem de erro da quantidade') do
+  expect(page).to have_content("Quantidade must be greater than 0")
+end
