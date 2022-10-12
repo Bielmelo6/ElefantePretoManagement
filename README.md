@@ -21,4 +21,7 @@ O tio de um integrante aceitou ser cliente do nosso grupo. Ele tem um bar concei
  ### [Codacy](https://www.codacy.com/product)
  ### [Heroku](https://www.heroku.com/)
 ## :construction: Status do Projeto
-Em andamento
+Finalizado
+
+## :page_with_curl: Acesso
+Email: teste1@teste1.com  Password: teste123
