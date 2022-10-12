@@ -6,3 +6,6 @@ When('eu preencho o pedido do cliente: {string}, item: {string}, quantidade: {st
   fill_in 'pedido[quantidade]', :with => quant
 end
 
+Then('eu vejo uma mensagem de erro do pedido') do
+  expect(page).not_to have_content("Pedido was successfully created")
+end

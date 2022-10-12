@@ -12,3 +12,7 @@ Feature: Pedido
     And eu clico no botao de criar 'Pedido'
     Then eu vejo uma mensagem que o 'Pedido' foi cadastrado com sucesso
 
+    Scenario: cadastrar pedido com quantidade invalida
+      Given estou na pagina de adicionar 'pedido'
+      When eu preencho o pedido do cliente: 'ivan do nascimento', item: 'paçoca', quantidade: '0'
+      Then eu vejo uma mensagem de erro do pedido
