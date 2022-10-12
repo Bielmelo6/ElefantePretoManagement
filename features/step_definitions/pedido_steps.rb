@@ -9,3 +9,14 @@ end
 Then('eu vejo uma mensagem de erro do pedido') do
   expect(page).not_to have_content("Pedido was successfully created")
 end
+
+And('o pedido de quantidade: {string} existe') do |quant|
+  expect(page).to have_content(quant)
+  click_on 'Show this pedido'
+end
+
+When('eu edito a quantidade do pedido: {string} para :{string}') do |nome,novo|
+  expect(page).to have_content(nome)
+  click_on 'Edit this pedido'
+  fill_in 'pedido[quantidade]', :with => novo
+end
