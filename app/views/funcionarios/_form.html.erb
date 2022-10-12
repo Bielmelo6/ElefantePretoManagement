@@ -37,7 +37,7 @@
     <%= form.label :cargo_id%>
     <%= form.collection_select(:cargo_id, Cargo.all, :id, :funcao,{:selected => @funcionario.cargo_id})%>
   </div>
-
+  <%= form.hidden_field :dono_id, value: current_dono.id %>
   <div>
     <%= form.submit %>
   </div>
