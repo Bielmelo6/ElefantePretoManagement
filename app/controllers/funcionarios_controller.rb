@@ -70,6 +70,6 @@ class FuncionariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def funcionario_params
-      params.require(:funcionario).permit(:nome, :cpf, :nascimento, :email, :cargo_id)
+      params.require(:funcionario).permit(:nome, :cpf, :nascimento, :email, :cargo_id, :dono_id)
     end
 end
