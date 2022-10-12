@@ -30,3 +30,9 @@ Feature: Pedido
       When eu edito a quantidade do pedido: '2' para :'0'
       And eu clico no botao de atualizar 'Pedido'
       Then eu vejo uma mensagem de erro da quantidade
+
+    Scenario: remover pedido com sucesso
+      Given estou na pagina de 'pedidos'
+      And o pedido de quantidade: '2' existe
+      When eu removo o pedido de quantidade: '2'
+      Then eu vejo uma mensagem que o 'Pedido' foi removido com sucesso

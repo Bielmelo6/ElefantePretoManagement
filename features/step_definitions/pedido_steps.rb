@@ -24,3 +24,8 @@ end
 Then('eu vejo uma mensagem de erro da quantidade') do
   expect(page).to have_content("Quantidade must be greater than 0")
 end
+
+When('eu removo o pedido de quantidade: {string}') do |quant|
+  expect(page).to have_content(quant)
+  click_button "Destroy this pedido"
+end
